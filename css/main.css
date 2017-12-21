@@ -1,0 +1,195 @@
+body{
+    background-image:url(../images/bg3.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+header{
+    position: relative;
+    height:inherit;
+    min-height: 500px;
+    width: inherit;
+    background-size: cover !important;
+	-webkit-background-size: cover !important;
+    text-align: center;
+    overflow: hidden;
+}
+
+header:before{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+header .banner{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:auto;
+    width: 85%;
+    padding: 50px 20px 50px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 2.5px rgba(0, 0, 0, .15);
+}
+
+header .banner-text{
+    width: 100%;
+}
+
+header .banner-text h1{
+    font: 72px/1.1em 'Exo2-Regular';
+    color: #fff;
+    letter-spacing: -2px;
+    margin: 0 auto 18px auto;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
+header .banner-text h3{
+    font: 20px/1.9em 'Exo2-Italic';
+    color: #f1f1f1;
+    width: 60%;
+    margin: 0 auto;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+}
+
+header .banner-text h4{
+    font: 14px/1.9em 'Exo2-Italic';
+    color: #ffffff;
+    width: 60%;
+    margin: 0 auto;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+}
+
+header .banner-text h3 span,
+header .banner-text h3 a{
+    color: #fff;
+}
+
+header .banner-text hr {
+    width: 60%;
+    margin: 30px auto 20px auto;
+    border-color: #2F2D2E;
+    border-color: rgba(150, 150, 150, .3);
+}
+
+header .social{
+    margin: 5px 0;
+    padding: 10px 0 -10px 0;
+    font-size: 40px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
+}
+
+header .social li {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 0;
+}
+
+header .social li a{
+    color: #fff;
+}
+
+header .social li a:hover,header .social li a:focus {
+    color: #FBCD3F;
+}
+
+#nav-wrap ul, #nav-wrap li, #nav-wrap a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+#nav-wrap {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 0 auto;
+    z-index: 100;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+ul#nav{
+    min-height: 48px;
+    width: auto;
+    text-align: center;
+}
+
+ul#nav li {
+    position: relative;
+    list-style: none;
+    height: 48px;
+    display: inline-block;
+}
+
+ul#nav li a {
+    display: inline-block;
+    padding: 8px 13px;
+    line-height: 32px;
+    text-decoration: none;
+    text-align: left;
+    color: #fff;
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+ul#nav li a:hover{
+    color: #FBCD3F;
+}
+
+/*
+footer {
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+}
+
+footer a, footer a:visited{
+    color: #999999;
+}
+
+
+footer .social-links{
+    padding: 0;
+    font-size: 30px;
+}
+
+footer .social-links li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 42px;
+    color: #FBCD3F;
+}
+
+footer .social-links li:first-child{
+    margin-left: 0;
+}
+*/
+
+.fnt a{
+    font-family: 'Exo2-Bold';
+}
+
+@media screen and (max-width: 480px){
+    header .banner-text h1{
+        font: 36px/1.1em 'Exo2-Regular';
+    }
+    header .banner-text h3{
+        font: 20px/1em 'Exo2-Italic';
+        width:90%;
+    }
+    header .banner-text hr {
+        width: 85%;
+    }
+    header .banner{
+        border-radius:0;
+    }
+}

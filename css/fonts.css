@@ -1,0 +1,97 @@
+@font-face{
+        font-family: "KeepCalm";
+        src: url(./fonts/KeepCalm.ttf);
+}
+*{
+    font-family: "KeepCalm";
+}
+
+@font-face{
+        font-family: "DroidSans";
+        src: url(./fonts/DroidSans.ttf);
+}
+*{
+    font-family: "DroidSans";
+}
+
+@font-face{
+        font-family: "DroidSans-Bold";
+        src: url(./fonts/DroidSans-Bold.ttf);
+}
+*{
+    font-family: "DroidSans-Bold";
+}
+
+@font-face{
+        font-family: "Ubuntu-Bold";
+        src: url(./fonts/Ubuntu-Bold.ttf);
+}
+*{
+    font-family: "Ubuntu-Bold";
+}
+
+@font-face{
+        font-family: "Ubuntu-BoldItalic";
+        src: url(./fonts/Ubuntu-BoldItalic.ttf);
+}
+*{
+    font-family: "Ubuntu-BoldItalic";
+}
+
+@font-face{
+        font-family: "Ubuntu-Regular";
+        src: url(./fonts/Ubuntu-Regular.ttf);
+}
+*{
+    font-family: "Ubuntu-Regular";
+}
+
+@font-face{
+        font-family: "Ubuntu-Italic";
+        src: url(./fonts/Ubuntu-Italic.ttf);
+}
+*{
+    font-family: "Ubuntu-Italic";
+}
+
+
+@font-face{
+        font-family: "Slabo-Regular";
+        src: url(./fonts/Slabo-Regular.ttf);
+}
+*{
+    font-family: "Slabo-Regular";
+}
+
+
+@font-face{
+        font-family: "Exo2-Regular";
+        src: url(./fonts/Exo2-Regular.ttf);
+}
+*{
+    font-family: "Exo2-Regular";
+}
+
+@font-face{
+        font-family: "Exo2-Italic";
+        src: url(./fonts/Exo2-Italic.ttf);
+}
+*{
+    font-family: "Exo2-Italic";
+}
+
+@font-face{
+        font-family: "Exo2-Bold";
+        src: url(./fonts/Exo2-Bold.ttf);
+}
+*{
+    font-family: "Exo2-Bold";
+}
+
+@font-face{
+        font-family: "Exo2-Light";
+        src: url(./fonts/Exo2-Light.ttf);
+}
+*{
+    font-family: "Exo2-Light";
+}
