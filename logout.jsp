@@ -1,9 +1,7 @@
 <%@ page language="java" import="java.util.*, java.text.*" errorPage=""%>
 <%
-  RequestDispatcher rd;
-  rd=request.getRequestDispatcher("chat.jsp");
   session.setAttribute("login","no");
   session.setAttribute("user","");
   session.setAttribute("type","");
-  rd.forward(request,response);
+  response.sendRedirect("/chat/chat.jsp");
 %>

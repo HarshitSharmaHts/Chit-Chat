@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*, java.text.*" errorPage="" %>
-
+<%
+  String type="";
+%>
 <html>
   <head>
     <title></title>
@@ -10,7 +12,6 @@
   </head>
   <body>
       <%@ include file="menu.jsp"%>
-      <hr>
       <div class="banner-text" align="center">
         <h1 class="heading">Login Failure</h1>
       </div>

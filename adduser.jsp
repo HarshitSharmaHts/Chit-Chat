@@ -1,36 +1,43 @@
-<%@ page language="java" import="java.util.*, java.text.*" errorPage="" %>
+<%@ page language="java" import="java.sql.*, java.io.*" errorPage=""%>
+<%!
+  public boolean isValidEmail(String str)
+  {
+    String [] part = str.split("@");
+    if(part.length!=2)
+      return false;
+    return true;
+  }
+%>
+<%
+  String name = (String)request.getParameter("name");
+  String email = (String)request.getParameter("email");
+  String loginid = (String)request.getParameter("loginid");
+  String password = (String)request.getParameter("password");
+  String type = (String)request.getParameter("type");
 
-<html>
-  <head>
-    <title></title>
+  try
+  {
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat","root","root");
+    String insquery = "INSERT INTO LOGIN VALUES (?,?,?,?,?)";
+    PreparedStatement ps = con.prepareStatement(insquery);
+    ps.setString(1,loginid);
+    ps.setString(2,name);
+    ps.setString(3,password);
+    ps.setString(4,email);
+    ps.setString(5,type);
 
-    <link rel="stylesheet" href="css/default.css">
-  	<link rel="stylesheet" href="css/main.css">
-  	<link rel="stylesheet" href="css/fonts.css">
-  	<link rel="shortcut icon" href="favicon.ico" >
-  </head>
-  <body>
-      <%@ include file="menu.jsp"%>
-      <hr>
-      <div class="banner-text" align="center">
-        <a href="adduser.jsp"><button class="lg-btn">Add Users</button></a>
-        <a href="viewuser.jsp"><button class="lg-btn">View Users</button></a>
-        <a href="AdminChatServlet"><button class="lg-btn">Configure Rooms</button></a>
-        <a href="logout.jsp"><button class="lg-btn">Logoff</button></a>
-      </div>
-      <div  align="center">
-        <form class="login-form" action="loggedin.jsp" method="POST">
-          <input type="text" name="name" placeholder="User's Name">
-          <input type="text" name="email" placeholder="User's Email">
-          <input type="text" name="loginid" placeholder="UserName">
-          <input type="password" name="password" placeholder="Password">
-          <select name="type">
-            <option value="Admin">Admin</option>
-            <option value=User>User</option>
-          </select>
-          <button type="submit" name="submit" style="float=left;">Submit</button>
-          <button type="reset" name="reset" value="reset">Reset</button>
-        </form>
-      </div>
-  </body>
-</html>
+    ps.executeUpdate();
+    ps.close();
+    con.close();
+    if(type.equals("User"))
+      response.sendRedirect("/chat/chat.jsp");
+    else if(type.equals("Admin"))
+      response.sendRedirect("/chat/loggedin.jsp?reqPage=addAdmin");
+
+  }
+  catch(Exception e)
+  {
+    out.println("<h2 class=\"heading\">Sorry Some Unexpected error has occured.</h2><h1>:(</h1>");
+  }
+%>

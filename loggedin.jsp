@@ -1,9 +1,16 @@
 <%@ page language="java" import="java.sql.*, java.io.*, java.util.*, java.text.*" errorPage=""%>
 <html>
   <%
+  if(session.getAttribute("login")==null)
+  {
+    session.setAttribute("login","no");
+  }
+  String type="";
+  if(session.getAttribute("login").equals("no"))
+  {
     String loginid = request.getParameter("loginid");
     String pwd = request.getParameter("password");
-    String type = (String)request.getParameter("type");
+    type = (String)request.getParameter("type");
 
     boolean flag=false;
 
@@ -11,7 +18,7 @@
 
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat","root","root");
     Statement stmt = conn.createStatement();
-    String query = "SELECT * FROM LOGIN WHERE LOGINID='"+loginid+"' AND type='Admin'";
+    String query = "SELECT * FROM LOGIN WHERE LOGINID='"+loginid+"' AND type='"+type+"'";
 
     ResultSet rs = stmt.executeQuery(query);
 
@@ -31,6 +38,23 @@
       session.setAttribute("type",rs.getString(5));
       session.setAttribute("user",rs.getString(2));
       session.setAttribute("loginid",rs.getString(1));
+    }
+    else
+    {
+      RequestDispatcher rd = request.getRequestDispatcher("loginfailure.jsp");
+      rd.forward(request,response);
+    }
+  }
+  else
+    type=(String)session.getAttribute("type");
+
+  if((!"Admin".equals(type))&&(!"User".equals(type)))
+  {
+      RequestDispatcher rd = request.getRequestDispatcher("loginfailure.jsp");
+      rd.forward(request,response);
+  }
+
+    String reqPage = (String)request.getParameter("reqPage");
   %>
   <head>
     <title></title>
@@ -41,42 +65,89 @@
   	<link rel="shortcut icon" href="favicon.ico" >
   </head>
   <body>
-      <%@ include file="menu.jsp"%>
-      <hr>
-      <div class="banner-text" align="center">
-        <h1 class="sub-heading">Welcome!<%=session.getAttribute("user")%></h1>
-      </div>
-      <div  align="center">
-        <%
-          if("Admin".equals(type))
-          {
-        %>
+    <%@ include file="menu.jsp"%>
+    <%
+      if(reqPage==null)
+      {
+    %>
+    <section class="main-container">
+      <h1 class="">Welcome!<%=session.getAttribute("user")%></h1>
+    	<div class="main-wrapper" align="center">
 
-        <a href="adduser.jsp"><button class="lg-btn">Add Users</button></a>
-        <a href="viewuser.jsp"><button class="lg-btn">View Users</button></a>
-        <a href="AdminChatServlet"><button class="lg-btn">Configure Rooms</button></a>
-        <a href="logout.jsp"><button class="lg-btn">Logoff</button></a>
-        <%
-          }
-          else
-          {
-        %>
-        <button class="lg-btn" href="RoomListServlet">Select Chat Room</button><br>
-        <button class="lg-btn" href="logout.jsp">Logoff</button><br>
-        <%
-          }
-        %>
       </div>
-  </body>
-</html>
-
-  <%
-    }
-    else
+    </section>
+    <%
+  }else if(reqPage.equals("addAdmin"))
+      {
+    %>
+    <section class="main-container">
+      <div class="main-wrapper signup-wrapper">
+        <h2>Add One More Admin</h2>
+        <form class="signup-form" action="adduser.jsp" method="POST">
+          <input type="text" name="name" placeholder="Full Name">
+          <input type="text" name="loginid" placeholder="UserName">
+          <input type="text" name="email" placeholder="Email">
+          <input type="hidden" name="type" value="Admin">
+          <input type="password" name="password" placeholder="Password">
+          <button type="submit" name="submit">Create</button>
+        </form>
+      </div>
+    </section>
+    <%
+  }else if(reqPage.equals("viewUser"))
     {
+    %>
+    <%-- <%@ page language="java" import="java.sql.*, java.io.*, java.util.*" errorPage=""%> --%>
+    <%
+      Class.forName("com.mysql.jdbc.Driver");
+      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat","root","root");
+      Statement stmt = con.createStatement();
+      String query = "SELECT * FROM LOGIN";
+      ResultSet rs = stmt.executeQuery(query);
+    %>
+    <section class="main-container">
+        <form class="viewuser-form" action="deleteuser.jsp" method="POST">
+            <h2>User Information</h2><hr>
+          <table align="center">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>LoginID</td>
+                  <td>Password</td>
+                  <td>E-Mail</td>
+                  <td>Type</td>
+                </tr>
+              </thead>
+              <tbody>
+            <%
+              while(rs.next())
+              {
+                out.println("<tr>");
+                out.println("<td><input type=checkbox value="+rs.getString(1)+" name=loginid>"+rs.getString(2)+"</td>");
+                out.println("<td>"+rs.getString(1)+"</td>");
+                out.println("<td>"+rs.getString(3)+"</td>");
+                out.println("<td>"+rs.getString(4)+"</td>");
+                out.println("<td>"+rs.getString(5)+"</td>");
+                out.println("</tr>");
+              }
+              rs.close();
+              con.close();
+            %>
 
-      RequestDispatcher rd = request.getRequestDispatcher("loginfailure.jsp");
-      rd.forward(request,response);
-    }
-  %>
+              </tbody>
+          </table>
+          <button type="submit" name="submit">Delete User(s)</button>
+        </form>
+    </section>
+    <%
+      }
+      else if(reqPage.equals("configRoom"))
+      {
+    %>
+      
+    <%
+      }
+    %>
+  </body>
+
 </html>

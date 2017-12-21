@@ -1,45 +1,32 @@
-<%@ page language="java" import="java.util.*, java.text.*" errorPage="" %>
 <%
-if(session.getAttribute("login")==null)
-{
-  session.setAttribute("login","no");
-}
+String type = "";
 %>
-<html>
-  <head>
-    <title></title>
-
-  <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="shortcut icon" href="favicon.ico" >
-  </head>
-  <body>
-      <%@ include file="menu.jsp"%>
-      <hr>
-      <div class="banner-text" align="center">
-        <h1 class="heading">Welcome!</h1>
-      </div>
-      <div  align="center">
-        <%
-          DateFormat df = new SimpleDateFormat("EEEE, dd MMMM, YYYY");
-          String date=df.format(new Date());
-          out.println(date+"&nbsp;&nbsp;<br>");
-          String login = (String)session.getAttribute("login");
-          if("no".equals(login))
-            out.println("Click for <a href='/chat/login.jsp?type=User'>Login</a>");
-          else
-            out.println("Hello <font color=yellow>"+(String)session.getAttribute("user")+".<br><a href=logout.jsp>Logout</a></font>");
-
-          if("Admin".equals(session.getAttribute("type")))
-          {
-            out.println("<br><br><a href='adduser.jsp'>Click for Admin Console</a>");
-          }
-          else
-          {
-            out.println("<br><br><a href='RoomListServlet'>Click for User Console</a>");
-          }
-        %>
-      </div>
+<%@ include file="menu.jsp" %>
+    <%
+      if(!session.getAttribute("login").equals("no"))
+      {
+        response.sendRedirect("/chat/loggedin.jsp");
+      }
+    %>
+    <section class="main-container">
+    	<div class="main-wrapper signup-wrapper">
+    		<h2>Create an Account</h2>
+    		<form class="signup-form" action="adduser.jsp" method="POST">
+          <input type="text" name="name" placeholder="Full Name">
+          <input type="text" name="loginid" placeholder="UserName">
+          <input type="text" name="email" placeholder="Email">
+          <input type="hidden" name="type" value="User">
+          <input type="password" name="password" placeholder="Password">
+          <button type="submit" name="submit">Create</button>
+    		</form>
+    	</div>
+    </section>
+    <div style="margin:0 auto;" align="center">
+      <%
+        DateFormat df = new SimpleDateFormat("EEEE, dd MMMM, YYYY");
+        String date=df.format(new Date());
+        out.println(date+"<br><br>");
+      %>
+    </div>
   </body>
 </html>
