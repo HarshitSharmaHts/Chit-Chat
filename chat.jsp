@@ -18,7 +18,7 @@ if(session.getAttribute("login")==null)
       <%@ include file="menu.jsp"%>
       <hr>
       <div class="banner-text" align="center">
-        <h1>Welcome!</h1>
+        <h1 class="heading">Welcome!</h1>
       </div>
       <div  align="center">
         <%
