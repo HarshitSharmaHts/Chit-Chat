@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.sql.*, java.io.*, java.util.*, java.text.*" errorPage=""%>
+<%@ page language="java" import="java.sql.*, java.io.*, java.util.*, java.text.*,chit.chat.*" errorPage=""%>
+
 <html>
   <%
   if(session.getAttribute("login")==null)
@@ -53,8 +54,8 @@
       RequestDispatcher rd = request.getRequestDispatcher("loginfailure.jsp");
       rd.forward(request,response);
   }
-
     String reqPage = (String)request.getParameter("reqPage");
+
   %>
   <head>
     <title></title>
@@ -67,6 +68,8 @@
   <body>
     <%@ include file="menu.jsp"%>
     <%
+    if("Admin".equals(type))
+    {
       if(reqPage==null)
       {
     %>
@@ -143,10 +146,65 @@
       }
       else if(reqPage.equals("configRoom"))
       {
+        String chrm = (String)session.getAttribute("chRoomPath");
+        String rolp = (String)session.getAttribute("roomListPath");
+        String adcp = (String)session.getAttribute("adminChatPath");
     %>
-      
+    <%=chrm%>
+    <%=rolp%>
+    <%=adcp%>
+    <section class="main-container">
+        <form class="viewuser-form" action="<%=response.encodeURL(adcp)%>" method="POST">
+      <table align="center">
+        <tbody>
+          <%
+            HashMap hashmap = (HashMap)getServletContext().getAttribute("roomList");
+            if(hashmap != null)
+            {
+              Iterator iterator = hashmap.keySet().iterator();
+              if(!iterator.hasNext()){
+                out.println("No Room Configured.");
+              }
+              else
+              {
+                out.println("To Remove a room check it and press Update RoomList.");
+                ChatRooms chatroom;
+                for(;
+                    iterator.hasNext();
+                    out.println("<tr><td><input type=checkbox name=remove value='"+chatroom.getName()+"'>"+chatroom.getName()+"</td></tr>")
+                    )
+                {
+                  String s = (String)iterator.next();
+                  chatroom = (ChatRooms)hashmap.get(s);
+                }
+              }
+            }
+          %>
+        </tbody>
+        </table>
+          <input name=roomname size=25 placeholder="Subject"/>
+          <textArea name=roomdescr cols="25" row=5 placeholder="Description."></textArea>
+          <button type="submit">Update RoomList</button>
+        </form>
+    </section>
     <%
       }
+    }
+    else if("User".equals(type))
+    {
+      if(reqPage!=null)
+      {
+        response.sendRedirect("/chat/loggedin.jsp");
+      }
+    %>
+    <section class="main-container">
+      <h1 class="">Welcome!<%=session.getAttribute("user")%></h1>
+    	<div class="main-wrapper" align="center">
+
+      </div>
+    </section>
+    <%
+    }
     %>
   </body>
 

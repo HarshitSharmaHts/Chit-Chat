@@ -19,7 +19,7 @@ if(session.getAttribute("login")==null)
 	<nav>
 		<div class="main-wrapper">
 			<ul>
-  				<li><a href="chat.jsp">Home</a></li>
+  				<li><a href="MainChatServlet">Home</a></li>
   			</ul>
   			<div class="nav-login">
   				<%
@@ -31,13 +31,13 @@ if(session.getAttribute("login")==null)
           %>
           <a href="loggedin.jsp?reqPage=addAdmin">Add Admin</a>
           <a href="loggedin.jsp?reqPage=viewUser">View Users</a>
-          <a href="loggedin.jsp?reqPage=configRoom">Configure Rooms</a>
+          <a href="AdminChatServlet">Configure Rooms</a>
           <%
             }
             else if("User".equals(type))
             {
           %>
-          <a>SelectChatRoom</a>
+          <a href="RoomListServlet">SelectChatRoom</a>
           <%
             }
           %>

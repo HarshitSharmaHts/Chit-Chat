@@ -287,6 +287,9 @@ header .nav-login a:hover {
     padding: 20px;
     border-radius: 10px;
 }
+table {
+  width: 100%;
+}
 td {
   padding: 5px;
   border: 0.5px solid #fff;
@@ -296,6 +299,7 @@ thead {
   border: : 0.5px solid #fff;
 }
 tbody {
+  margin: 0 auto;
   border: 0.5px solid #fff;
 }
 .viewuser-form button {
@@ -314,4 +318,7 @@ tbody {
 
 .viewuser-form button:hover {
     background-color: #111;
+}
+#checkConfig {
+  width: 150px;
 }

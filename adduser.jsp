@@ -31,7 +31,7 @@
     ps.close();
     con.close();
     if(type.equals("User"))
-      response.sendRedirect("/chat/chat.jsp");
+      response.sendRedirect("/chat/MainChatServlet");
     else if(type.equals("Admin"))
       response.sendRedirect("/chat/loggedin.jsp?reqPage=addAdmin");
 

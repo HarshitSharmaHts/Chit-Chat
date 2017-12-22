@@ -1,3 +1,5 @@
+package chit.chat;
+
 import java.util.Stack;
 
 public class ChatRooms extends Stack
@@ -10,10 +12,10 @@ public class ChatRooms extends Stack
 		this.description=description;
 		setSize(size);
 	}
-	// public void joinChatEntry(ChatRoomEntry chatentry)
-	// {
-	// 	push(chatentry);
-	// }
+	public void joinChatEntry(ChatRoomEntry chatentry)
+	{
+		push(chatentry);
+	}
 	public String getDescription()
 	{
 		return description;

@@ -21,23 +21,23 @@
 </context-param>
 
 <servlet>
-	<servlet-name>ChatServlet</servlet-name>
-	<servlet-class>ChatServlet</servlet-class>
+	<servlet-name>MainChatServlet</servlet-name>
+	<servlet-class>chit.chat.MainChatServlet</servlet-class>
 </servlet>
 
 <servlet>
 	<servlet-name>AdminChatServlet</servlet-name>
-	<servlet-class>AdminChatServlet</servlet-class>
+	<servlet-class>chit.chat.AdminChatServlet</servlet-class>
 </servlet>
 
 <servlet>
 	<servlet-name>ChRoomServlet</servlet-name>
-	<servlet-class>ChRoomServlet</servlet-class>
+	<servlet-class>chit.chat.ChRoomServlet</servlet-class>
 </servlet>
 
 <servlet>
 	<servlet-name>RoomListServlet</servlet-name>
-	<servlet-class>RoomListServlet</servlet-class>
+	<servlet-class>chit.chat.RoomListServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
@@ -56,8 +56,8 @@
 </servlet-mapping>
 
 <servlet-mapping>
-	<servlet-name>ChatServlet</servlet-name>
-	<url-pattern>/ChatServlet</url-pattern>
+	<servlet-name>MainChatServlet</servlet-name>
+	<url-pattern>/MainChatServlet</url-pattern>
 </servlet-mapping>
 
 </web-app>

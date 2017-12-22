@@ -1,10 +1,12 @@
+package chit.chat;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class ChatServlet extends HttpServlet {
+public class MainChatServlet extends HttpServlet {
 	String chRoomPath;
 	String roomListPath;
 	String adminChatPath;
@@ -12,9 +14,12 @@ public class ChatServlet extends HttpServlet {
 	public void init()
 	{
 		ServletContext serCon = getServletContext();
-		serCon.setAttribute("chRoomPath",serCon.getInitParameter("CHROOM_PATH"));
-		serCon.setAttribute("roomListPath",serCon.getInitParameter("ROOMLIST_PATH"));
-		serCon.setAttribute("adminChatPath",serCon.getInitParameter("ADMINCHAT_PATH"));
+		serCon.setAttribute("chRoomPath",
+		serCon.getInitParameter("CHROOM_PATH"));
+		serCon.setAttribute("roomListPath",
+		serCon.getInitParameter("ROOMLIST_PATH"));
+		serCon.setAttribute("adminChatPath",
+		serCon.getInitParameter("ADMINCHAT_PATH"));
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
@@ -29,10 +34,13 @@ public class ChatServlet extends HttpServlet {
 		session.setAttribute("adminChatPath",adminChatPath);
 
 		HashMap hashmap = null;
+		PrintWriter out = response.getWriter();
+		out.println("Hello World!");
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat/","root","root");
+	    Class.forName("com.mysql.jdbc.Driver");
+	    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat","root","root");
+			out.println("Connection established.");
 			synchronized(getServletContext())
 			{
 				hashmap = (HashMap)getServletContext().getAttribute("roomList");
@@ -40,7 +48,7 @@ public class ChatServlet extends HttpServlet {
 				{
 					hashmap = new HashMap();
 					Statement stmt = con.createStatement();
-					String query = "select * from CHATROOM";
+					String query = "SELECT * FROM CHATROOM";
 					ResultSet rs = stmt.executeQuery(query);
 					while(rs.next())
 					{
@@ -54,11 +62,9 @@ public class ChatServlet extends HttpServlet {
 		}
 		catch(SQLException e)
 		{
-
 		}
 		catch(ClassNotFoundException e)
 		{
-
 		}
 		RequestDispatcher view = request.getRequestDispatcher("chat.jsp");
 		view.forward(request,response);

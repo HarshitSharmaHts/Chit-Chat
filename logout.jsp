@@ -3,5 +3,5 @@
   session.setAttribute("login","no");
   session.setAttribute("user","");
   session.setAttribute("type","");
-  response.sendRedirect("/chat/chat.jsp");
+  response.sendRedirect("/chat/MainChatServlet");
 %>
