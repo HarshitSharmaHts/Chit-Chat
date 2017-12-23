@@ -322,3 +322,101 @@ tbody {
 #checkConfig {
   width: 150px;
 }
+iframe:focus {
+    outline: none;
+}
+
+iframe[seamless] {
+    display: block;
+}
+.chat-form {
+  width:100%;
+}
+.chat-form textarea {
+  position: relative;
+  width:80%;
+  height: 40px;
+  display: block;
+  float: left;
+  padding: 0px 5%;
+  border: none;
+  background-color: #fff;
+  font-family: arial;
+  font-size: 16px;
+  color: #111;
+  line-height: 40px;
+  resize: none;
+}
+.chat-form button {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 40px;
+  border: none;
+  background-color: #222;
+  font-family: arial;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
+.my-chat-msg {
+  text-align: left;
+  width: 60%;
+  float: left;
+  background-color: darkcyan;
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 20px;
+  padding-bottom: 0px !important;
+}
+.my-chat-msg p{
+  color: #fff;
+}
+.else-chat-msg {
+  text-align: left;
+  width: 60%;
+  float: right;
+  background-color: white;
+  padding: 5px 15px;
+  margin: 5px 10px;
+  border-radius: 20px;
+  padding-bottom: 0px !important;
+}
+.else-chat-msg p{
+  color: #000;
+}
+.my-chat-msg .msg-time {
+  position: relative;
+  float: right;
+  font-size:6px;
+  color: white;
+}
+.my-chat-msg .msg-time:hover {
+  font-size: 12px;
+}
+
+.else-chat-msg .msg-time {
+  position: relative;
+  float: right;
+  font-size:6px;
+  color: darkcyan;
+}
+.else-chat-msg .msg-time:hover {
+  font-size: 12px;
+}
+.chat-header {
+  height: 100px;
+  background-color: #fff;
+  border: 5px solid darkcyan;
+}
+.chat-header h1 {
+  color: darkcyan;
+  font-size: 24px;
+  padding: 20px;
+}
+.chat-header p {
+  color: darkcyan;
+  font-size: 14px;
+}

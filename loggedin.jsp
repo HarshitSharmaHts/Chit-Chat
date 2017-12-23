@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.sql.*, java.io.*, java.util.*, java.text.*,chit.chat.*" errorPage=""%>
+<%@ page language="java" import="java.sql.*, java.io.*, java.util.*, java.text.*,chit.chat.*,java.net.*" errorPage=""%>
 
-<html>
   <%
   if(session.getAttribute("login")==null)
   {
@@ -57,15 +56,6 @@
     String reqPage = (String)request.getParameter("reqPage");
 
   %>
-  <head>
-    <title></title>
-
-    <link rel="stylesheet" href="css/default.css">
-  	<link rel="stylesheet" href="css/main.css">
-  	<link rel="stylesheet" href="css/fonts.css">
-  	<link rel="shortcut icon" href="favicon.ico" >
-  </head>
-  <body>
     <%@ include file="menu.jsp"%>
     <%
     if("Admin".equals(type))
@@ -150,9 +140,6 @@
         String rolp = (String)session.getAttribute("roomListPath");
         String adcp = (String)session.getAttribute("adminChatPath");
     %>
-    <%=chrm%>
-    <%=rolp%>
-    <%=adcp%>
     <section class="main-container">
         <form class="viewuser-form" action="<%=response.encodeURL(adcp)%>" method="POST">
       <table align="center">
@@ -183,7 +170,7 @@
         </tbody>
         </table>
           <input name=roomname size=25 placeholder="Subject"/>
-          <textArea name=roomdescr cols="25" row=5 placeholder="Description."></textArea>
+          <textArea name=roomdesc cols="25" row=5 placeholder="Description."></textArea>
           <button type="submit">Update RoomList</button>
         </form>
     </section>
@@ -196,11 +183,63 @@
       {
         response.sendRedirect("/chat/loggedin.jsp");
       }
+
+      String chrm = (String)session.getAttribute("chRoomPath");
+      String rolp = (String)session.getAttribute("roomListPath");
+      String adcp = (String)session.getAttribute("adminChatPath");
     %>
     <section class="main-container">
       <h1 class="">Welcome!<%=session.getAttribute("user")%></h1>
     	<div class="main-wrapper" align="center">
-
+        <h2>Select Your Room.</h2>
+        <%
+          String login = (String)session.getAttribute("login");
+          String s = request.getParameter("expand");
+          String s1 = request.getParameter("profileName");
+          if(s1 == null)
+          {
+            s1 ="";
+          }
+        %>
+        <form class="signup-form" action="<%=chrm%>" method="POST">
+        <%
+          HashMap hashmap =(HashMap)getServletContext().getAttribute("roomList");
+          if(hashmap == null)
+          {
+            out.println("<h1>No Room configured.</h1>");
+          }
+          else {
+        %>
+          <h1>Your Username "<%=session.getAttribute("loginid")%>" will be used while chatting.</h1>
+          <input name=profileName type="hidden" value="<%=session.getAttribute("loginid")%>">
+        <%
+            Iterator iterator = hashmap.keySet().iterator();
+            while(iterator.hasNext())
+            {
+              String s2 = (String)iterator.next();
+              ChatRooms chatroom = (ChatRooms)hashmap.get(s2);
+              String s3 = rolp + "?expand="+URLEncoder.encode(s2);
+              s3 = response.encodeURL(s3);
+        %>
+          <input type=radio name=roomName value="<%=s2%>" <%=((s!=null && s.equals(s2)) ? " CHECKED":"")%>>
+          <a href="<%=s3%>"><%=s2%></a>
+        <%
+          if(s!=null && s.equals(s2)){
+            if(chatroom.getDescription().equals("")){
+              out.println("<h1>There is no subject available.</h1>");
+            }
+            else
+            {
+              out.println("<h1>"+chatroom.getDescription()+"</h1>");
+            }
+          }
+          }
+        %>
+        <button type="submit">Enter the room</button>
+        </form>
+        <%
+          }
+        %>
       </div>
     </section>
     <%

@@ -7,57 +7,57 @@
 
 <context-param>
 	<param-name>ADMINCHAT_PATH</param-name>
-	<param-value>/chat/AdminChatServlet</param-value>
+	<param-value>/chat/RoomController</param-value>
 </context-param>
 
 <context-param>
 	<param-name>ROOMLIST_PATH</param-name>
-	<param-value>/chat/RoomListServlet</param-value>
+	<param-value>/chat/User</param-value>
 </context-param>
 
 <context-param>
 	<param-name>CHROOM_PATH</param-name>
-	<param-value>/chat/ChRoomServlet</param-value>
+	<param-value>/chat/ChitChat</param-value>
 </context-param>
 
 <servlet>
-	<servlet-name>MainChatServlet</servlet-name>
-	<servlet-class>chit.chat.MainChatServlet</servlet-class>
+	<servlet-name>Chat</servlet-name>
+	<servlet-class>chit.chat.Chat</servlet-class>
 </servlet>
 
 <servlet>
-	<servlet-name>AdminChatServlet</servlet-name>
-	<servlet-class>chit.chat.AdminChatServlet</servlet-class>
+	<servlet-name>RoomController</servlet-name>
+	<servlet-class>chit.chat.RoomController</servlet-class>
 </servlet>
 
 <servlet>
-	<servlet-name>ChRoomServlet</servlet-name>
-	<servlet-class>chit.chat.ChRoomServlet</servlet-class>
+	<servlet-name>ChitChat</servlet-name>
+	<servlet-class>chit.chat.ChitChat</servlet-class>
 </servlet>
 
 <servlet>
-	<servlet-name>RoomListServlet</servlet-name>
-	<servlet-class>chit.chat.RoomListServlet</servlet-class>
+	<servlet-name>User</servlet-name>
+	<servlet-class>chit.chat.User</servlet-class>
 </servlet>
 
 <servlet-mapping>
-	<servlet-name>AdminChatServlet</servlet-name>
-	<url-pattern>/AdminChatServlet</url-pattern>
+	<servlet-name>RoomController</servlet-name>
+	<url-pattern>/RoomController</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>
-	<servlet-name>RoomListServlet</servlet-name>
-	<url-pattern>/RoomListServlet</url-pattern>
+	<servlet-name>User</servlet-name>
+	<url-pattern>/User</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>
-	<servlet-name>ChRoomServlet</servlet-name>
-	<url-pattern>/ChRoomServlet</url-pattern>
+	<servlet-name>ChitChat</servlet-name>
+	<url-pattern>/ChitChat</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>
-	<servlet-name>MainChatServlet</servlet-name>
-	<url-pattern>/MainChatServlet</url-pattern>
+	<servlet-name>Chat</servlet-name>
+	<url-pattern>/Chat</url-pattern>
 </servlet-mapping>
 
 </web-app>

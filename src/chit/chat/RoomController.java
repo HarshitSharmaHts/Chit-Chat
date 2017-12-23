@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import java.util.*;
-public class AdminChatServlet extends HttpServlet {
+public class RoomController extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException
   {
