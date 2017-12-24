@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*, java.text.*" errorPage="" %>
 
-<html>
-  <head>
-    <title></title>
     <%
       String type = (String)request.getParameter("type");
       if(type!=null && type.equals("User"))
@@ -10,34 +7,57 @@
         response.sendRedirect("/chat/adminlogin.jsp?type=Admin");
       }
     %>
+<html lang="en">
+  <head>
+    <title>Chit-Chat</title>
 
-    <link rel="stylesheet" href="css/default.css">
-  	<link rel="stylesheet" href="css/main.css">
-  	<link rel="stylesheet" href="css/fonts.css">
-  	<link rel="shortcut icon" href="favicon.ico" >
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-      <%@ include file="menu.jsp"%>
-      <section class="main-container">
-      	<div class="main-wrapper signup-wrapper">
-      		<h2>Admin Login</h2>
-        <div class="form-div">
-          <form class="signup-form" action="loggedin.jsp" method="POST">
-  					<input type="text" name="loginid" placeholder="Username/e-mail">
-  					<input type="password" name="password" placeholder="password">
-            <input type="hidden" name="type" value="<%=type%>">
-  					<button type="submit" name="submit">Login</button>
-  				</form>
+    <div class="top-content">
+      <div class="inner-bg">
+        <div>
+          <h1><a class="lgnsgp" href="Chat"><strong>Login</a> | <a class="lgnsgp" href="Chat?p=SignUp">SignUp</strong></a></h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-box">
+                <div class="form-top">
+                  <div class="form-top-left">
+                    <h3>Login to our site</h3>
+                    <p>Enter username and password to log on:</p>
+                  </div>
+                  <div class="form-top-right">
+                    <i class="fa fa-lock"></i>
+                  </div>
+                </div>
+                <div class="form-bottom">
+                  <form role="form"  action="loggedin.jsp" method="POST" class="login-form">
+                    <div class="form-group">
+                      <label class="sr-only" for="form-username">Username</label>
+                      <input type="text" name="loginid" placeholder="Username/e-mail" class="form-username form-control">
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="form-password">Password</label>
+                      <input type="password" name="password" placeholder="password" class="form-password form-control">
+                      <input type="hidden" name="type" value="<%=type%>">
+                    </div>
+                    <button type="submit" class="btn">Sign in!</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
         </div>
       </div>
-    </section>
-    <div style="margin:0 auto;" align="center">
-      <%
-        DateFormat df = new SimpleDateFormat("EEEE, dd MMMM, YYYY");
-        String date=df.format(new Date());
-        out.println(date+"<br><br>");
-      %>
     </div>
   </body>
 </html>
