@@ -57,7 +57,6 @@ public class ChitChat extends HttpServlet {
     {
       DateFormat df= new SimpleDateFormat("hh:mm");
       String time = df.format(new Date());
-      // msgStr = msgStr;
       chatroom.joinChatEntry(new ChatRoomEntry(str,msgStr,time));
     }
     messageFrame(response,chatroom);
