@@ -27,7 +27,7 @@
                     {
                     %>
                 <div class="col-md-4 tabs">
-                    <h1><a class="lgnsgp" href="Chat"><strong>Login</a><a class="lgnsgp" href="Chat?p=SignUp">SignUp</strong></a></h1>
+                    <h1><a class="lgnsgp" href="Index"><strong>Login</a><a class="lgnsgp" href="Index?p=SignUp">SignUp</strong></a></h1>
                     <hr>
                     <div class="form-box">
                         <div class="form-top">
@@ -69,7 +69,7 @@
                     {
                     %>
                 <div class="col-md-4">
-                    <h1><a class="lgnsgp" href="Chat"><strong>Login</a><a class="lgnsgp" href="Chat?p=SignUp">SignUp</strong></a></h1>
+                    <h1><a class="lgnsgp" href="Index"><strong>Login</a><a class="lgnsgp" href="Index?p=SignUp">SignUp</strong></a></h1>
                     <hr>
                     <div class="form-box">
                         <div class="form-top">
