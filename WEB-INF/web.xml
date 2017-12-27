@@ -6,11 +6,6 @@
   version="3.1">
 
 <context-param>
-	<param-name>ADMINCHAT_PATH</param-name>
-	<param-value>/chat/RoomController</param-value>
-</context-param>
-
-<context-param>
 	<param-name>ROOMLIST_PATH</param-name>
 	<param-value>/chat/User</param-value>
 </context-param>
@@ -22,27 +17,37 @@
 
 <servlet>
 	<servlet-name>Chat</servlet-name>
-	<servlet-class>chit.chat.Chat</servlet-class>
+	<servlet-class>chit.chat.ChatServlet</servlet-class>
 </servlet>
 
 <servlet>
-	<servlet-name>RoomController</servlet-name>
-	<servlet-class>chit.chat.RoomController</servlet-class>
+	<servlet-name>AddRoom</servlet-name>
+	<servlet-class>chit.chat.AddRoomServlet</servlet-class>
+</servlet>
+
+<servlet>
+	<servlet-name>DeleteRoom</servlet-name>
+	<servlet-class>chit.chat.DeleteRoomServlet</servlet-class>
 </servlet>
 
 <servlet>
 	<servlet-name>ChitChat</servlet-name>
-	<servlet-class>chit.chat.ChitChat</servlet-class>
+	<servlet-class>chit.chat.ChitChatServlet</servlet-class>
 </servlet>
 
 <servlet>
 	<servlet-name>User</servlet-name>
-	<servlet-class>chit.chat.User</servlet-class>
+	<servlet-class>chit.chat.UserServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
-	<servlet-name>RoomController</servlet-name>
-	<url-pattern>/RoomController</url-pattern>
+	<servlet-name>DeleteRoom</servlet-name>
+	<url-pattern>/DeleteRoom</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>AddRoom</servlet-name>
+	<url-pattern>/AddRoom</url-pattern>
 </servlet-mapping>
 
 <servlet-mapping>

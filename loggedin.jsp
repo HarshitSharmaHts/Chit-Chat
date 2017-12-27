@@ -175,12 +175,16 @@
     {
       String chrm = (String)session.getAttribute("chRoomPath");
       String rolp = (String)session.getAttribute("roomListPath");
-      String adcp = (String)session.getAttribute("adminChatPath");
+      String op = (String)request.getParameter("op");
     %>
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-5">
+        <div class="col-md-3"></div>
+        <%
+          if(op.equals("del"))
+          {
+        %>
+        <div class="col-md-6">
             <div class="form-box">
                 <div class="form-top">
                     <div class="form-top-center">
@@ -188,7 +192,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="<%=response.encodeURL(adcp)%>" method="POST" class="registration-form">
+                    <form role="form" action="/chat/DeleteRoom" method="POST" class="registration-form">
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
@@ -223,7 +227,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
+        <%
+      }else{
+        %>
+        <div class="col-md-6">
             <div class="form-box">
                 <div class="form-top">
                     <div class="form-top-center">
@@ -231,7 +238,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="<%=response.encodeURL(adcp)%>" method="POST" class="registration-form">
+                    <form role="form" action="/chat/AddRoom" method="POST" class="registration-form">
                         <div class="form-group">
                             <input class="form-control" name=roomname size=25 placeholder="Subject"/>
                         </div>
@@ -243,7 +250,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-1"></div>
+        <%
+      }%>
+        <div class="col-md-3"></div>
     </div>
 </div>
 <%
@@ -258,7 +267,6 @@
 
     String chrm = (String)session.getAttribute("chRoomPath");
     String rolp = (String)session.getAttribute("roomListPath");
-    String adcp = (String)session.getAttribute("adminChatPath");
     %>
 
 
@@ -266,33 +274,18 @@
     <div class="row">
       <%
                 String login = (String)session.getAttribute("login");
-                String s = request.getParameter("expand");
+                String expand = request.getParameter("expand");
                 String s1 = request.getParameter("profileName");
                 if(s1 == null)
                 {
                   s1 ="";
                 }
-                %>
-        <div class="col-md-1"></div>
-        <div class="col-md-5">
-            <div class="form-box">
-                <div class="form-top">
-                    <div class="form-top-center">
-                        <h3 align="center">Delete Room</h3>
-                    </div>
-                </div>
-                <div class="form-bottom">
-                  <form role="form" action="<%=chrm%>" method="POST">
-                  <%
                       HashMap hashmap =(HashMap)getServletContext().getAttribute("roomList");
                       if(hashmap == null)
                       {
                         out.println("<h1>No Room configured.</h1>");
                       }
                       else {
-                      %>
-                  <input name=profileName type="hidden" value="<%=session.getAttribute("loginid")%>">
-                  <%
                       Iterator iterator = hashmap.keySet().iterator();
                       while(iterator.hasNext())
                       {
@@ -300,32 +293,36 @@
                         ChatRooms chatroom = (ChatRooms)hashmap.get(s2);
                         String s3 = rolp + "?expand="+URLEncoder.encode(s2);
                         s3 = response.encodeURL(s3);
-                      %>
-                      <div class="form-group">
-                        <input class="form-control" type=radio name=roomName value="<%=s2%>" <%=((s!=null && s.equals(s2)) ? " CHECKED":"")%>>
-                        <a href="<%=s3%>"><label><%=s2%></label></a>
+        %>
+
+                    <div class="col-md-3">
+                      <div class="form-box">
+                          <div class="form-top">
+                             <div class="form-top-center">
+                                <h3 align="center"><%=s2%></h3>
+                             </div>
+                          </div>
+                          <div class="form-bottom">
+                            <form role="form" action="<%=chrm%>" method="POST">
+                              <input name=profileName type="hidden" value="<%=session.getAttribute("loginid")%>">
+                              <input class="form-control" type=hidden name=roomName value="<%=s2%>">
+<%
+if(chatroom.getDescription().equals("")){
+out.println("<p>There is no subject available.</p>");
+}
+else
+{
+out.println("<p>"+chatroom.getDescription()+"</p>");
+}
+%>
+                            <button class="form-control" type="submit">Enter the room</button>
+                          </form>
+                        </div>
                       </div>
-                  <%
-                      if(s!=null && s.equals(s2)){
-                        if(chatroom.getDescription().equals("")){
-                          out.println("<h1>There is no subject available.</h1>");
-                        }
-                        else
-                        {
-                          out.println("<h1>"+chatroom.getDescription()+"</h1>");
-                        }
-                      }
-                      }
+                    </div>
+                        <%
+                      }}
                       %>
-                  <button type="submit">Enter the room</button>
-                  </form>
-                  <%
-                      }
-                      %>
-                </div>
-            </div>
-          </div>
-        <div class="col-md-1"></div>
       </div>
     </div>
 <%

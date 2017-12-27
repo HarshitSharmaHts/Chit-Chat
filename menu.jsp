@@ -37,7 +37,10 @@ if(session.getAttribute("login")==null)
               <a class="nav-link"  href="loggedin.jsp?reqPage=viewUser">View Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="RoomController">Configure Rooms</a>
+              <a class="nav-link"  href="AddRoom">Add Room</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="DeleteRoom">Delete Room(s)</a>
             </li>
           </ul>
           <%

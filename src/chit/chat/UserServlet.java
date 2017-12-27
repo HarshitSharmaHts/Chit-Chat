@@ -4,7 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class User extends HttpServlet {
+public class UserServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
   {
     RequestDispatcher rd = request.getRequestDispatcher("loggedin.jsp");

@@ -1,0 +1,111 @@
+body {
+  margin: 0px;
+  padding:0px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.chat-form {
+  margin: 0px;
+  padding: 0px;
+}
+.chat-form textarea {
+  width: 85%;
+  height: 40px;
+  border-radius: 3px;
+  padding: 8px;
+  border: none;
+  border-radius: 40px 0px 0px 40px;
+  overflow: auto;
+  outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  padding: 10px;
+  float: left;
+}
+.chat-form button {
+  margin-top: 1px;
+  width: 15%;
+  height: 40px;
+  border: none;
+  background-color: #4CAF50;
+  border-radius: 0px 40px 40px 0px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+iframe {
+  width: 100%;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+
+.bottom-div {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.chat-box {
+  border: 1px solid #999;
+}
+.chat-header {
+  /*background-color: rgba(0,0,0,0.5);*/
+  position: fixed;
+  display: block;
+  margin: 0;
+  border-radius: 20px 20px 0px 0px;
+  padding: 10px;
+}
+.chat-header h1 {
+  text-align: center;
+  font-size: 32px;
+  color: white;
+}
+
+.chat-header p {
+  text-align: center;
+  color: white;
+}
+
+.chat-container {
+    border: none;
+    background-color: rgba(255,162,52,1);
+    border-radius: 20px;
+    padding: 15px 15px 0px 15px;
+    margin: 10px 0;
+}
+
+.chat-container p {
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.else-msg {
+    border-color: #ccc;
+    background-color: #02ccba;
+}
+
+.chat-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.time-right {
+    margin: 0 0 5px 5px;
+    font-size: 12px;
+    float: right;
+    color: rgba(0,0,0,0.6);
+}
+
+.time-left {
+    margin: 0 0 5px 5px;
+    font-size: 12px;
+    float: left;
+    color: rgba(255,255,255,0.8);
+}
+.nav-item h1 {
+  color: white;
+}

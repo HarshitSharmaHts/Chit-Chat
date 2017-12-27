@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class Chat extends HttpServlet {
+public class ChatServlet extends HttpServlet {
 	String chRoomPath;
 	String roomListPath;
 	String adminChatPath;

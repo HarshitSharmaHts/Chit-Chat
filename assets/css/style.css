@@ -166,29 +166,20 @@ img { max-width: 100%; }
 	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
 	text-align: left;
 }
-
+.form-bottom form p {
+   font-size: 16px;
+   color: #fff;
+}
 .form-bottom form textarea {
 	height: 100px;
 }
 
-.form-bottom form button.btn {
+.form-bottom form button .btn {
 	width: 100%;
 }
 
 .form-bottom form .input-error {
 	border-color: #19b9e7;
-}
-
-.social-login {
-	margin-top: 35px;
-}
-
-.social-login h3 {
-	color: #fff;
-}
-
-.social-login-buttons {
-	margin-top: 25px;
 }
 
 .middle-border {
@@ -291,6 +282,8 @@ button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; bac
   color:#fff;
   font-size: 18px;
 }
+
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}

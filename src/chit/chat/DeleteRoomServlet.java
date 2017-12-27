@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import java.util.*;
-public class RoomController extends HttpServlet {
+public class DeleteRoomServlet extends HttpServlet {
 
   public void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException
   {
@@ -50,22 +50,6 @@ public class RoomController extends HttpServlet {
           ps.close();
         }
       }
-      String roomname = request.getParameter("roomname");
-      String roomdesc = request.getParameter("roomdesc");
-
-      if(roomname != null && roomname.length() > 0)
-      {
-        synchronized (hashmap)
-        {
-          String i_query = "INSERT INTO CHATROOM VALUES (?, ?)";
-          PreparedStatement ps = con.prepareStatement(i_query);
-          ps.setString(1,roomname);
-          ps.setString(2,roomdesc);
-          ps.executeUpdate();
-          ps.close();
-          hashmap.put(roomname,new ChatRooms(roomname,roomdesc,4));
-        }
-      }
       con.close();
     }
     catch (SQLException e) {
@@ -74,7 +58,7 @@ public class RoomController extends HttpServlet {
     catch (ClassNotFoundException e) {
 
     }
-    RequestDispatcher view = request.getRequestDispatcher("loggedin.jsp?reqPage=configRoom");
+    RequestDispatcher view = request.getRequestDispatcher("loggedin.jsp?reqPage=configRoom&op=del");
     view.forward(request,response);
   }
 }
