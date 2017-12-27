@@ -17,7 +17,7 @@
       }
       ps.close();
       con.close();
-      response.sendRedirect("/chat/loggedin.jsp?reqPage=viewUser");
+      response.sendRedirect("/ChitChat/loggedin.jsp?reqPage=viewUser");
     }
     catch(Exception e)
     {
@@ -26,6 +26,6 @@
   }
   else
   {
-    response.sendRedirect("/chat/loggedin.jsp?reqPage=viewUser");
+    response.sendRedirect("/ChitChat/loggedin.jsp?reqPage=viewUser");
   }
 %>

@@ -31,9 +31,9 @@
     ps.close();
     con.close();
     if(type.equals("User"))
-      response.sendRedirect("/chat/Index");
+      response.sendRedirect("/ChitChat/Index");
     else if(type.equals("Admin"))
-      response.sendRedirect("/chat/loggedin.jsp?reqPage=addAdmin");
+      response.sendRedirect("/ChitChat/loggedin.jsp?reqPage=addAdmin");
 
   }
   catch(Exception e)

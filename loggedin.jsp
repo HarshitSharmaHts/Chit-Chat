@@ -189,7 +189,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="/chat/DeleteRoom" method="POST" class="registration-form">
+                    <form role="form" action="/ChitChat/DeleteRoom" method="POST" class="registration-form">
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
@@ -235,7 +235,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form role="form" action="/chat/AddRoom" method="POST" class="registration-form">
+                    <form role="form" action="/ChitChat/AddRoom" method="POST" class="registration-form">
                         <div class="form-group">
                             <input class="form-control" name=roomname size=25 placeholder="Subject"/>
                         </div>
@@ -259,7 +259,7 @@
     {
     if(reqPage!=null)
     {
-      response.sendRedirect("/chat/loggedin.jsp");
+      response.sendRedirect("/ChitChat/loggedin.jsp");
     }
 
     String chrm = (String)session.getAttribute("chRoomPath");

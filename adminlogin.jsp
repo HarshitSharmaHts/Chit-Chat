@@ -4,7 +4,7 @@
       String type = (String)request.getParameter("type");
       if(type!=null && type.equals("User"))
       {
-        response.sendRedirect("/chat/adminlogin.jsp?type=Admin");
+        response.sendRedirect("/ChitChat/adminlogin.jsp?type=Admin");
       }
     %>
 <html lang="en">

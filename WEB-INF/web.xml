@@ -7,12 +7,12 @@
 
 <context-param>
 	<param-name>ROOMLIST_PATH</param-name>
-	<param-value>/chat/User</param-value>
+	<param-value>/ChitChat/User</param-value>
 </context-param>
 
 <context-param>
 	<param-name>CHROOM_PATH</param-name>
-	<param-value>/chat/ChitChat</param-value>
+	<param-value>/ChitChat/ChitChat</param-value>
 </context-param>
 
 <servlet>
