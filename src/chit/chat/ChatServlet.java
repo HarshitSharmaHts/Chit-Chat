@@ -18,8 +18,6 @@ public class ChatServlet extends HttpServlet {
 		serCon.getInitParameter("CHROOM_PATH"));
 		serCon.setAttribute("roomListPath",
 		serCon.getInitParameter("ROOMLIST_PATH"));
-		serCon.setAttribute("adminChatPath",
-		serCon.getInitParameter("ADMINCHAT_PATH"));
 	}
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException

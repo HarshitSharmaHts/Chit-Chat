@@ -84,12 +84,12 @@
                 <div class="form-bottom">
                     <form role="form" action="adduser.jsp" method="POST" class="registration-form">
                         <div class="form-group">
-                            <label class="sr-only" for="form-first-name">Full Name</label>
-                            <input type="text" name="name" placeholder="Full Name" class="form-first-name form-control" id="form-first-name">
+                            <label class="sr-only" for="full-name">Full Name</label>
+                            <input type="text" name="name" placeholder="Full Name" class="full-name form-control" id="form-first-name">
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="form-last-name">Username</label>
-                            <input type="text" name="loginid" placeholder="UserName" class="form-last-name form-control" id="form-last-name">
+                            <label class="sr-only" for="user-name">Username</label>
+                            <input type="text" name="loginid" placeholder="UserName" class="user-name form-control" id="form-last-name">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="form-email">Email</label>
@@ -111,9 +111,6 @@
 <%
     }else if(reqPage.equals("viewUser"))
       {
-      %>
-<%-- <%@ page language="java" import="java.sql.*, java.io.*, java.util.*" errorPage=""%> --%>
-<%
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/chat","root","root");
     Statement stmt = con.createStatement();

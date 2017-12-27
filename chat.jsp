@@ -42,20 +42,20 @@
                         <div class="form-bottom">
                             <form role="form" action="adduser.jsp" method="POST" class="registration-form">
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-first-name">Full Name</label>
-                                    <input type="text" name="name" placeholder="Full Name" class="form-first-name form-control" id="form-first-name">
+                                    <label class="sr-only" for="full-name">Full Name</label>
+                                    <input type="text" name="name" placeholder="Full Name" class="form-first-name form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-last-name">Username</label>
-                                    <input type="text" name="loginid" placeholder="UserName" class="form-last-name form-control" id="form-last-name">
+                                    <label class="sr-only" for="loginid">Username</label>
+                                    <input type="text" name="loginid" placeholder="UserName" class="loginid form-control">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-email">Email</label>
-                                    <input type="text" name="email" placeholder="Email" class="form-email form-control" id="form-email">
+                                    <input type="text" name="email" placeholder="Email" class="form-email form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="password" placeholder="Password" class="form-about-yourself form-control" id="form-about-yourself">
+                                    <label class="sr-only" for="password">Password</label>
+                                    <input type="password" name="password" placeholder="Password" class="password form-control">
                                 </div>
                                 <input type="hidden" name="type" value="User">
                                 <button type="submit" class="btn">Sign me up!</button>
@@ -84,12 +84,12 @@
                         <div class="form-bottom">
                             <form role="form"  action="User" method="POST" class="login-form">
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-username">Username</label>
-                                    <input type="text" name="loginid" placeholder="Username/e-mail" class="form-username form-control">
+                                    <label class="sr-only" for="username">Username</label>
+                                    <input type="text" name="loginid" placeholder="Username/e-mail" class="username form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="password" placeholder="password" class="form-password form-control">
+                                    <label class="sr-only" for="password">Password</label>
+                                    <input type="password" name="password" placeholder="password" class="password form-control">
                                     <input type="hidden" name="type" value="User">
                                 </div>
                                 <button type="submit" class="btn">Sign in!</button>

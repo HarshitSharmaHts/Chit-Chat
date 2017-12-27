@@ -19,7 +19,7 @@ if(session.getAttribute("login")==null)
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 			<ul class="navbar-nav mr-auto">
   				<li class="nav-item">
-            <a class="nav-link" href="Chat">Home</a>
+            <a class="nav-link" href="Index">Home</a>
           </li>
   		</ul>
   				<%

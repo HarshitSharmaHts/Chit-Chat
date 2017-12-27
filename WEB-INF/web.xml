@@ -62,7 +62,7 @@
 
 <servlet-mapping>
 	<servlet-name>Chat</servlet-name>
-	<url-pattern>/Chat</url-pattern>
+	<url-pattern>/Index</url-pattern>
 </servlet-mapping>
 
 </web-app>
