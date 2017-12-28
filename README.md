@@ -1,31 +1,48 @@
-# Chit-Chat #
+# Project Title
 
-----------
-Chit-Chat is a webapp written in java Servlet and JSP(Java Server Pages) that provides an platform where anyone can chat in a chat room of his choice. Chat room can be managed by an admin. admin can add other admin,can add room,can delete room, and can delete users also. a user can select any of the chat room rpovided by admin and start chatting in that chat room.
-Login is required for both Admin & User.
+Chit-Chat is a WebApp writen in JAVA Servlets, & JSP (Java Server Pages), that provides a venue for communities of users with a common interest to communicate in real time. Forums and discussion groups, in comparison, allow users to post messages but don't have the capacity for interactive messaging. The main motive behind this project was to learn the concept of JAVA Servlets and JSP in depth.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
-Install Java on your computer if it isn't installed. You can't run JAR files without Java installed on your computer. If you don't already have Java installed, go to Java's website at [https://www.java.com/en/download/](https://www.java.com/en/download/) and click the Free Java Download button below the latest version of Java, then install Java once it downloads.
 
-### Running the app
-clone the repository and put all the files of repository inside a folder "ChitChat". Run your tomcat and enter the localhost:8080/ChitChat/Index link in your browser. Now you will see a login page enter. if you don't have any account than SignUp and log in your self as user.
+What things you need to install the software and how to install them:
 
-### How to use
+```
+1. JAVA
+```
+Install Java on your computer if it isn't installed. If you don't already have Java installed, go to Java's website at [www.java.com](https://www.java.com/en/download/) and click the Free Java Download button below the latest version of Java, then install Java once it downloads.
 
-To know how this tool can be operated
+```
+2. Java Servlet Container 
+```
+You can use any Java Servlet Container but I whould prefer Tomcat 8. Read this [link](http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.24/README.html) to install tomcat in you local machine.
+
+### Installing
+
+1. Get the copy of repository and put the all files inside the webapp folder named "ChitChat".
+2. Make chat name database using the [.sql]() file.
+3. Start you Java Servlet Container.
+4. In your browser use this [link](http://localhost:[port]/ChitChat/Index) .
+5. User Login: username- unnamed_User
+               password- 123456
+6. To Login as Admin use this [link](http://localhost:8080/ChitChat/adminlogin.jsp?type=Admin) .
+7. Admin Login: username- unnamed
+                password- 123456
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/harshitsharmahts/Chit-Chat/tags). 
 
 ## Authors
 
-* **Harshit Sharma**
+* **Harshit Sharma** - [Harshit Sharma](https://github.com/harshitsharmahts)
 
-See also the list of [contributors](https://github.com/Chit-Chat/fileCoDoc/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/harshitsharmahts/Chit-Chat/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/HarshitSharmaHts/Chit-Chat/blob/master/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-* To Give the better look to this webapp i have used bootstrap css.
