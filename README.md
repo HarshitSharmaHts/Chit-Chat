@@ -23,7 +23,7 @@ You can use any Java Servlet Container but I whould prefer Tomcat 8. Read this [
 ### Installing
 
 1. Get the copy of repository and put the all files inside the webapp folder named "ChitChat".
-2. Make chat name database using the [.sql]() file.
+2. Make chat name database using the [chat.sql](https://github.com/HarshitSharmaHts/Chit-Chat/blob/master/WEB-INF/lib/chat.sql) file.
 3. Start you Java Servlet Container.
 4. In your browser use this [link](http://localhost:[port]/ChitChat/Index) .
 5. User Login: username- unnamed_User
