@@ -16,7 +16,7 @@ What things you need to install the software and how to install them:
 Install Java on your computer if it isn't installed. If you don't already have Java installed, go to Java's website at [www.java.com](https://www.java.com/en/download/) and click the Free Java Download button below the latest version of Java, then install Java once it downloads.
 
 ```
-2. Java Servlet Container 
+2. Java Servlet Container
 ```
 You can use any Java Servlet Container but I whould prefer Tomcat 8. Read this [link](http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.24/README.html) to install tomcat in you local machine.
 
@@ -32,10 +32,6 @@ You can use any Java Servlet Container but I whould prefer Tomcat 8. Read this [
 7. Admin Login: username- unnamed
                 password- 123456
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/harshitsharmahts/Chit-Chat/tags). 
-
 ## Authors
 
 * **Harshit Sharma** - [Harshit Sharma](https://github.com/harshitsharmahts)
@@ -45,4 +41,3 @@ See also the list of [contributors](https://github.com/harshitsharmahts/Chit-Cha
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
